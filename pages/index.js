@@ -1,4 +1,5 @@
 import { createClient } from "contentful";
+import Head from "next/head";
 import Card from "../components/cards/Card";
 import CardYellow from "../components/cards/CardYellow";
 import Layout from "../components/layout/Layout";
@@ -13,7 +14,8 @@ import Title from "../components/title";
 export default function Home({projets}) {
   // console.log(projets);
   return (
-    <Layout>
+    <Layout title= "Accueil" metaContent="Bienvenue sur mon porte-folio. je m'appel NicolasHb et je suis développeur web. Développeur React. Développeur Laravel.">
+      
       <div className="bg-black">
         <Title title="Porte Folio" />
         {/* à propos */}
@@ -49,7 +51,11 @@ export default function Home({projets}) {
               description="lorem15"
               img="Wordpress-Logo.png"
             />
-            <Card title="TAILWINDS" description="lorem15" img="tailwindlogo.png" />
+            <Card
+              title="TAILWINDS"
+              description="lorem15"
+              img="tailwindlogo.png"
+            />
           </div>
           {/* Projet */}
           <div className="">
@@ -80,7 +86,11 @@ export async function getStaticProps() {
   });
   // console.log(client);
   //2 - on récupère la data une fois que la promesse est valide
-  const res = await client.getEntries({content_type: 'projets'});
+  const res = await client.getEntries({
+    content_type: 'projets',
+    limit: 8,
+    order: "sys.createdAt",
+  });
   // console.log(res)
   //3 - on envoi la data dans le props de la page
   return {

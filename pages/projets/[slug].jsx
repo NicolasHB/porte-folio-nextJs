@@ -51,10 +51,14 @@ export async function getStaticProps({ params }) {
 
 
 export default function show({projet}) {
-	const {title, description, roles, skills, urlDuProjet, images} = projet.fields
+	const {title, description, roles, skills, urlDuProjet, images, featuredImage} = projet.fields;
 	console.log(projet.fields)
   return (
-    <Layout>
+    <Layout 
+	title= {title} 
+	metaContent={`Le projet ${title} est projet fait avec ${skills}`}
+	image={featuredImage.fields.file.url}
+	>
         <div className='container pt-8'>
 				<div className='grid grid-cols-2 items-centers gap-6'>
 					<div className='pr-10'>
@@ -89,7 +93,7 @@ export default function show({projet}) {
 							</ul>
 						</div>
 						<div className='p2 mt-6'>
-							<a href={urlDuProjet} target="_blank" className=' bg-indigo-500 rounded-lg p-2 text-white'>
+							<a href={urlDuProjet} target="_blank" className=' bg-indigo-500 rounded-lg p-2 text-white' rel="noopener noreferrer">
 								Voir le projet
 							</a>
 						</div>
@@ -97,7 +101,7 @@ export default function show({projet}) {
 					<div className='grid grid-cols-2 gap-3'>
 						{
 							images.map((image, index) => (
-						<img key={index} src={image.fields.file.url} alt='titre du projet' />
+						<img key={index} src={image.fields.file.url} alt={`NicolasHb Porte-folio ${title}`} />
 							))}
 					</div>
 				</div>
