@@ -8,7 +8,7 @@ import SectionAbout from "../components/SectionAbout";
 import SectionContact from "../components/SectionContact";
 import SectionFormation from "../components/SectionFormation";
 import SectionProjet from "../components/SectionProjet";
-import Title from "../components/title";
+import Title from "../components/Title";
 
 
 export default function Home({projets}) {
