@@ -1,0 +1,31 @@
+1/ installer un nouveau projet 
+2/ installer tailwind
+3/ Developper son projet
+
+CONTENTFUL 
+////////////////////////////////////////////////////////////////
+
+1/ inscription ou connexion 
+2/ creattion des content model (équivalent au migration de laravel)
+3/ rajout des items à mon content model 
+
+
+NEXTJS
+////////////////////////////////////////////////////////////////
+
+1/ install contentful, commande -> npm i contentful
+2/ connexion à l'API contentful, dans setting -> API key's -> add API key 
+    info à requis, space ID et content delivery API(accessToken)
+
+3/ créer un fichier .env.local et vérifier dans gitignore que le fichier est affiché dans la partie "locel env files"
+4/ Dans .env créer les variables d'environnement en uppercase préfixé par NEXT_PUBLIC_ 
+5/ coller les variables d'environnement récupérer dans contentful
+6/ créer un fichier .env-exemple pour anticiper le travail de groupe(copier le fichier .env.local)
+
+
+
+DESCRIPTION
+////////////////////////////////////////////////////////////////
+pour que les description rich-text soit dynamique il faut insttaler la dépendance :
+npm install @contentful/rich-text-react-renderer
+
